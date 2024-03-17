@@ -1,5 +1,18 @@
 from nicegui import ui
 import cli
+from pathlib import Path
+import random
+
+
+def pick_random_image():
+    p = Path("img")
+    files = [x for x in p.iterdir() if x.is_file()]
+    if not files:
+        return None
+
+    random_file = random.choice(files)
+    print(random_file)
+    return random_file
 
 
 @ui.refreshable
@@ -20,7 +33,7 @@ def load_ui():
                     if cli.arewebro(name1.value, name2.value):
                         result.set_text(f"YES, YOU AND {name2.value.upper()} ARE BRO!")
                         result.style('color: Violet; font-weight: bold')
-                        image.set_source("i-got-you-bro-fist-bump.gif")
+                        image.set_source(pick_random_image())
                         image.set_visibility(True)
                     else:
                         result.set_text(f"No, you and {name2.value} are not BRO!")
