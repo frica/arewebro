@@ -9,7 +9,9 @@ BRO_LIST = ("Fabien", "Pierre", "Moufid",
             "Laurent", "François", "Adrien",
             "Alexandre", "Jipé", "Pitt",
             "Easy", "Bastos", "Lolo",
-            "Fab", "Keke", "Nono")
+            "Fab", "Keke", "Nono",
+            "Nicolas", "Nico", "Patrick",
+            "Pat")
 
 
 def are_we_bro(name1, name2):
