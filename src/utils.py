@@ -7,7 +7,9 @@ BRO_LIST = ("Fabien", "Pierre", "Moufid",
             "Hugues", "Arnaud", "Bertrand",
             "David", "Amael", "Bastien",
             "Laurent", "François", "Adrien",
-            "Alexandre")
+            "Alexandre", "Jipé", "Pitt",
+            "Easy", "Bastos", "Lolo",
+            "Fab", "Keke", "Nono")
 
 
 def are_we_bro(name1, name2):
@@ -25,7 +27,13 @@ def pick_random_image():
     """ pick a random image in the img folder
      :return filepath of an image
     """
-    p = Path("../img")
+    if getattr(sys, 'frozen', False) and hasattr(sys, '_MEIPASS'):
+        pa = Path(__file__) # needed for PyInstaller
+        print(f"Path(__file__) is {pa}")
+        p = pa.joinpath("../img")
+    else:
+        p = Path("../img")
+    print(f"path to img is {p}")
     files = [x for x in p.iterdir() if x.is_file()]
     if not files:
         return None
