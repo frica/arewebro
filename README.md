@@ -4,7 +4,7 @@
 
 Close to be the stupidest application on Earth, but it was funny to reach a goal set by my friends :grin:
 
-This serves also as a playground to learn about UI development in Python and GitHub internals.
+This serves also as a playground to learn about UI development in Python, pytest, pyinstaller and GitHub internals.
 
 Built with [NiceGUI](https://github.com/zauberzeug/nicegui/)
 
@@ -12,14 +12,16 @@ TODO:
 
 - [x] unit tests
 
-- [ ] release tag
+- [x] release tag
 
-- [ ] installer
+- [x] installer
 
 - [x] Github action
 
 - [ ] better string compare
 
 - [ ] configurable name list
+
+- [ ] build package on push
 
 ![Screenshot](screenshot.png)
