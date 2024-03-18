@@ -1,23 +1,10 @@
 from nicegui import ui
-import cli
-from pathlib import Path
-import random
-
-
-def pick_random_image():
-    p = Path("img")
-    files = [x for x in p.iterdir() if x.is_file()]
-    if not files:
-        return None
-
-    random_file = random.choice(files)
-    print(random_file)
-    return random_file
+import utils
 
 
 @ui.refreshable
 def load_ui():
-    # global container, name1, name2, result, image
+
     container = ui.column()
 
     with container:
@@ -30,10 +17,10 @@ def load_ui():
         def display_results():
             with container:
                 if name1.value and name2.value:
-                    if cli.arewebro(name1.value, name2.value):
+                    if utils.are_we_bro(name1.value, name2.value):
                         result.set_text(f"YES, YOU AND {name2.value.upper()} ARE BRO!")
                         result.style('color: Violet; font-weight: bold')
-                        image.set_source(pick_random_image())
+                        image.set_source(utils.pick_random_image())
                         image.set_visibility(True)
                     else:
                         result.set_text(f"No, you and {name2.value} are not BRO!")
@@ -47,9 +34,11 @@ def load_ui():
         image = ui.image()
 
 
-load_ui()
+if __name__ == '__main__':
 
-# reload=false avoid the server kept up when you close the window in Native mode
-ui.run(title="Are We Bro?", native=True,
-       window_size=(300, 500), reload=False,
-       fullscreen=False)
+    load_ui()
+
+    # reload=false avoid the server kept up when you close the window in Native mode
+    ui.run(title="Bromance App", native=True,
+           window_size=(300, 500), reload=False,
+           fullscreen=False)
