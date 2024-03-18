@@ -1,12 +1,13 @@
+import sys
 from pathlib import Path
 import random
-
+import os
 
 BRO_LIST = ("Fabien", "Pierre", "Moufid",
-           "Hugues", "Arnaud", "Bertrand",
-           "David", "Amael", "Bastien",
-           "Laurent", "François", "Adrien",
-           "Alexandre")
+            "Hugues", "Arnaud", "Bertrand",
+            "David", "Amael", "Bastien",
+            "Laurent", "François", "Adrien",
+            "Alexandre")
 
 
 def are_we_bro(name1, name2):
@@ -30,4 +31,16 @@ def pick_random_image():
         return None
 
     random_file = random.choice(files)
-    return random_file
+    print(resource_path(random_file))
+    return resource_path(random_file)
+
+
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    if getattr(sys, 'frozen', False) and hasattr(sys, '_MEIPASS'):
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    else:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
