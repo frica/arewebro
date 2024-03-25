@@ -1,6 +1,6 @@
 # "Are we bro?" application
 
-![unit tests](https://github.com/github/docs/actions/workflows/test.yml/badge.svg)
+![unit tests](https://github.com/github/docs/actions/workflows/test.yml/badge.svg)  ![](https://img.shields.io/badge/No%20Maintenance%20Intended-%E2%9C%95-red.svg)
 
 Close to be the stupidest application on Earth, but it was funny to reach a goal set by my friends :grin:
 
