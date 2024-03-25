@@ -5,7 +5,9 @@ import utils
 @ui.refreshable
 def load_ui():
 
-    container = ui.column()
+    # tells the ui to occupy the full width and center all children items
+    # .w-full { width: 100%; }
+    container = ui.column().classes('w-full items-center')
 
     with container:
         ui.label('Are you really bros, bro?').style('font-style: italic')
